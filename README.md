@@ -1,19 +1,19 @@
 # OpenCV ChArUco Corner Detection
 
 ## Introduction
-Python OpenCV corner detection to detect [ChArUco](https://docs.opencv.org/3.2.0/df/d4a/tutorial_charuco_detection.html) markers and corners. This project has also support for calling the corner detection through Matlab. This code detects markers (QR-codes) in the ChArUco board and interpolates the corners between 2 found markers. The corner IDs and coordinates are obtained in this project.
+Python OpenCV corner detection to detect [ChArUco](https://docs.opencv.org/3.2.0/df/d4a/tutorial_charuco_detection.html) markers and corners. This project has also support for calling the corner detection through Matlab. This code detects markers (QR-codes) in the ChArUco board and interpolates the corners between 2 found markers. Corner IDs and coordinates are obtained in this project. Scripts also provide real-time and still image visualization, and detection rate for set of images.
 
 <img src="document_images/detected_charuco_corners.jpg"
      alt="ChArUco detected corners"
-     style="float: center;" />
+     style="display: block; margin-left: auto; margin-right: auto; width: 75%;" />
 
 <img src="document_images/detected_charuco_markers.gif"
      alt="ChArUco detected markers and corners"
-     style="float: center;" />
+     style="display: block; margin-left: auto; margin-right: auto; width: 75%;" />
 
 ## Dependencies
 
-In order to run python scripts through Matlab, you must have Python 3.6 installed. Otherwise, these should work with Python 3.7.
+These codes have been tested in Manjaro 18.0.4 and in Windows 10. In order to run python scripts through Matlab, you must have Python 3.6 installed. If Matlab support is not needed, the python scripts should work with Python 3.7 as well. All the the scripts use OpenCV contrib modules which must be installed, see requirements.txt.
 
 ## Installation
 1. Clone the repository
@@ -29,7 +29,7 @@ cd charuco-corner-detection
 pip install -r requirements.txt
 ```
 
-If you have version issues of the versions of libraries, these versions have been tested to work:
+In case of having version issues with the libraries, at least these versions have been tested to work:
 - Python 3.6.1
 - numpy 1.16.4
 - opencv 4.1.0
