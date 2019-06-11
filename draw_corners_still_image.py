@@ -11,20 +11,24 @@ $ python draw_corners_still_image.py path/to/the/image.bmp
 Pressing 'q' will close the image.
 """
 
+# Libraries
 import cv2
 import numpy as np
 import sys
 from get_charuco_corners import getCharucoCorners, \
                                 drawDetectedCornersCharuco_own
 
+# Project files
+from utils import getImagesFromArguments
+
 
 if __name__ == "__main__":
 
-    file_name = "../data/test_im/img3.bmp"
+    file_name = "test_images/im1.jpg"
 
     # If argument was given
     if len(sys.argv) > 1:
-        file_name = sys.argv[1:][0]
+        file_name = getImagesFromArguments(sys.argv[1:][0])
 
     frame = cv2.imread(file_name)
     charuco_corners, charuco_ids = getCharucoCorners(frame, 11, 8, 5,

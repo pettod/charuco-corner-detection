@@ -4,3 +4,4 @@
 # Folders
 .venv/
 *__pycache__/
+.vscode/
