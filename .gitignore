@@ -1,0 +1,6 @@
+# Filetypes
+
+
+# Folders
+.venv/
+*__pycache__/
