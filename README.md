@@ -3,13 +3,15 @@
 ## Introduction
 Python OpenCV corner detection to detect [ChArUco](https://docs.opencv.org/3.2.0/df/d4a/tutorial_charuco_detection.html) markers and corners. This project has also support for calling the corner detection through Matlab. This code detects markers (QR-codes) in the ChArUco board and interpolates the corners between 2 found markers. Corner IDs and coordinates are obtained in this project. Scripts also provide real-time and still image visualization, and detection rate for set of images.
 
+<center>
 <img src="document_images/detected_charuco_corners.jpg"
      alt="ChArUco detected corners"
-     style="display: block; margin-left: auto; margin-right: auto; width: 75%;" />
+     width="75%" />
 
 <img src="document_images/detected_charuco_markers.gif"
      alt="ChArUco detected markers and corners"
-     style="display: block; margin-left: auto; margin-right: auto; width: 75%;" />
+     width="75%" />
+</center>
 
 ## Dependencies
 
