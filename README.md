@@ -6,18 +6,19 @@ Python OpenCV corner detection to detect [ChArUco](https://docs.opencv.org/3.2.0
 <img src="document_images/detected_charuco_corners.jpg"
      alt="ChArUco detected corners"
      width="75%"
-     style="display: block; margin-left: 12.5%;" />
+     style="display: block; margin-left: auto; margin-right: auto;" />
 
 <img src="document_images/detected_charuco_markers.gif"
      alt="ChArUco detected markers and corners"
      width="75%"
-     style="display: block; margin-left: 12.5%;" />
+     style="display: block; margin-left: auto; margin-right: auto;" />
 
 ## Dependencies
 
-These scripts have been tested in Manjaro 18.0.4 and in Windows 10. In order to run python scripts through Matlab, you must have Python 3.6 installed. If Matlab support is not needed, the python scripts should work with Python 3.7 as well. All the scripts use OpenCV contrib modules which must be installed, see requirements.txt.
+These scripts have been tested in Manjaro 18.0.4 and in Windows 10. In order to run python scripts through Matlab, you must have Python 3.6 installed. If Matlab support is not needed, the python scripts should work with Python 3.7 as well. All the scripts use OpenCV contrib modules which must be installed, see ```requirements.txt```.
 
 ## Installation
+
 1. Clone the repository
 
 ```
@@ -38,3 +39,15 @@ In case of having version issues with the libraries, at least these versions hav
 - scipy 1.3.0
 
 ## Usage
+
+Explanations for the scripts in the repository:
+
+1. ```draw_corners_still_image.py```
+
+2. ```how_many_images_can_be_read.py```
+
+3. ```read_coordinates_from_mat.m```
+
+4. ```real_time_corner_detection.py```
+
+5. ```write_corners_to_mat.py```
