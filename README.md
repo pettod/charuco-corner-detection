@@ -15,7 +15,7 @@ Python OpenCV corner detection to detect [ChArUco](https://docs.opencv.org/3.2.0
 
 ## Dependencies
 
-These scripts have been tested in Manjaro 18.0.4 and in Windows 10. In order to run python scripts through Matlab, you must have Python 3.6 installed. If Matlab support is not needed, the python scripts should work with Python 3.7 as well. All the scripts use OpenCV contrib modules which must be installed, see ```requirements.txt```.
+These scripts have been tested in Manjaro 18.0.4 and in Windows 10. In order to run Python scripts through Matlab, you must have Python 3.6 installed. If Matlab support is not needed, the python scripts should work with Python 3.7 as well. All the scripts use OpenCV contrib modules which must be installed, see ```requirements.txt```.
 
 ## Installation
 
@@ -40,14 +40,28 @@ In case of having version issues with the libraries, at least these versions hav
 
 ## Usage
 
+Python scripts have a few certain constant values that define the parameters needed to detect the markers in the given ChArUco checkerboard. The table below describes the used parameters that you must define mainly depending on the number of markers and marker resolution in your ChArUco checkerboard.
+
+| Parameter      | Description   |
+| -------------- |:-------------:|
+| CORNERS_X      | The number of checkerboard corners in x direction |
+| CORNERS_Y      | The number of checkerboard corners in y direction |
+| MARKER_DICT    | Marker dictionary, depends on the marker resolution and the maximum number of needed marker IDs |
+| SQUARE_LENGTH  | The side length of a square in ChArUco checkerboard in millimeters |
+| MARKER_LENGTH  | The side length of a marker in ChArUco checkerboard in millimeters |
+
 Explanations for the scripts in the repository:
+
+#### Python
 
 1. ```draw_corners_still_image.py```
 
 2. ```how_many_images_can_be_read.py```
 
-3. ```read_coordinates_from_mat.m```
+3. ```real_time_corner_detection.py```
 
-4. ```real_time_corner_detection.py```
+4. ```write_corners_to_mat.py```
 
-5. ```write_corners_to_mat.py```
+#### Matlab
+
+1. ```read_coordinates_from_mat.m```
