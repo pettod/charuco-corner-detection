@@ -6,16 +6,16 @@ Python OpenCV corner detection to detect [ChArUco](https://docs.opencv.org/3.2.0
 <img src="document_images/detected_charuco_corners.jpg"
      alt="ChArUco detected corners"
      width="75%"
-     style="display: block; margin-left: auto; margin-right: auto;" />
+     style="display: block; margin-left: 12.5%;" />
 
 <img src="document_images/detected_charuco_markers.gif"
      alt="ChArUco detected markers and corners"
      width="75%"
-     style="display: block; margin-left: auto; margin-right: auto;" />
+     style="display: block; margin-left: 12.5%;" />
 
 ## Dependencies
 
-These codes have been tested in Manjaro 18.0.4 and in Windows 10. In order to run python scripts through Matlab, you must have Python 3.6 installed. If Matlab support is not needed, the python scripts should work with Python 3.7 as well. All the the scripts use OpenCV contrib modules which must be installed, see requirements.txt.
+These scripts have been tested in Manjaro 18.0.4 and in Windows 10. In order to run python scripts through Matlab, you must have Python 3.6 installed. If Matlab support is not needed, the python scripts should work with Python 3.7 as well. All the scripts use OpenCV contrib modules which must be installed, see requirements.txt.
 
 ## Installation
 1. Clone the repository
