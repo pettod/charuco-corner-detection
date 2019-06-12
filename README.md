@@ -19,13 +19,15 @@ These scripts have been tested in Manjaro 18.0.4 and in Windows 10. In order to 
 
 ## Installation
 
-1. Clone the repository
+1. Install Python 3.6
+
+2. Clone the repository
 
 ```
 git clone https://github.com/pettod/charuco-corner-detection.git
 ```
 
-2. Install Python 3.6 and its dependencies
+3. Install Python dependencies
 
 ```
 cd charuco-corner-detection
@@ -52,7 +54,8 @@ Python scripts have a few certain constant values that define the parameters nee
 | SQUARE_LENGTH  | The side length of a square in ChArUco checkerboard in millimeters |
 | MARKER_LENGTH  | The side length of a marker in ChArUco checkerboard in millimeters |
 
-Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning that if some weird values are found for corner coordinates, you will have to swap the values between these parameters. MARKER_DICT values can be found from OpenCV's documentation under [cv::aruco::PREDEFINED_DICTIONARY_NAME](https://docs.opencv.org/3.1.0/d9/d6a/group__aruco.html#gac84398a9ed9dd01306592dd616c2c975), but here are also covered all the possible enumerators and their integer values:
+Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning that if some weird values are found for corner coordinates, you will have to swap the values between these parameters. The weird values can be noticed by visualizing the corner coordinates. MARKER_DICT values can be found from OpenCV's documentation under [cv::aruco::PREDEFINED_DICTIONARY_NAME](https://docs.opencv.org/3.1.0/d9/d6a/group__aruco.html#gac84398a9ed9dd01306592dd616c2c975), but here are also covered all the possible enumerators and their integer values:
+
 | Enumerator            | Value     |
 | --------------------- | --------- |
 | DICT_4X4_50    	    | 0         |
@@ -73,7 +76,7 @@ Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning 
 | DICT_7X7_1000         | 15        |
 | DICT_ARUCO_ORIGINAL   | 16        |
 
-The name of an enumerator defines the marker resolution and the maximum number of used corners in the dictionary. The maximum number of corners in the dictionary must always be greater or equal than the number of corners in ChArUco checkerboard that is currently in use.
+The name of an enumerator defines the marker resolution and the maximum number of used corners in the dictionary. The maximum number of corners in the dictionary must always be greater or equal than the number of corners in the ChArUco checkerboard that is currently in use.
 
 ### Running the code
 
