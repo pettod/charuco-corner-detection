@@ -34,11 +34,10 @@ if __name__ == "__main__":
     charuco_corners, charuco_ids = getCharucoCorners(frame, 11, 8, 5,
                                                      60, 47)
 
-    # If any corner is detected, draw corner
-    if (charuco_ids.size > 0):
-        drawDetectedCornersCharuco_own(frame, charuco_corners,
-                                       charuco_ids)
-        print("Number of detected corners:", charuco_corners.shape[0])
+    # Draw corners
+    drawDetectedCornersCharuco_own(frame, charuco_corners,
+                                   charuco_ids)
+    print("Number of detected corners:", charuco_ids.size)
 
     # Draw image or quit
     cv2.imshow('Image', frame)

@@ -96,22 +96,23 @@ def drawDetectedCornersCharuco_own(img, corners, ids):
         Corners' IDs.
     """
 
-    rect_size = 5
-    id_font = cv2.FONT_HERSHEY_SIMPLEX
-    id_scale = 0.5
-    id_color = (255, 255, 0)
-    rect_thickness = 1
+    if ids.size > 0:
+        rect_size = 5
+        id_font = cv2.FONT_HERSHEY_SIMPLEX
+        id_scale = 0.5
+        id_color = (255, 255, 0)
+        rect_thickness = 1
 
-    # Draw rectangels and IDs
-    for (corner, id) in zip(corners, ids):
-        corner_x = int(corner[0])
-        corner_y = int(corner[1])
-        id_text = "Id: {}".format(str(id))
-        id_coord = (corner_x + 2*rect_size, corner_y + 2*rect_size)
-        cv2.rectangle(img, (corner_x - rect_size, corner_y - rect_size),
-                      (corner_x + rect_size, corner_y + rect_size),
-                      id_color, thickness=rect_thickness)
-        cv2.putText(img, id_text, id_coord, id_font, id_scale, id_color)
+        # Draw rectangels and IDs
+        for (corner, id) in zip(corners, ids):
+            corner_x = int(corner[0])
+            corner_y = int(corner[1])
+            id_text = "Id: {}".format(str(id))
+            id_coord = (corner_x + 2*rect_size, corner_y + 2*rect_size)
+            cv2.rectangle(img, (corner_x - rect_size, corner_y - rect_size),
+                        (corner_x + rect_size, corner_y + rect_size),
+                        id_color, thickness=rect_thickness)
+            cv2.putText(img, id_text, id_coord, id_font, id_scale, id_color)
 
 
 def drawDetectedCornersCharuco(img, corners, ids):
@@ -128,11 +129,11 @@ def drawDetectedCornersCharuco(img, corners, ids):
     ids : numpy.array()
         Corners' IDs.
     """
-
-    id_color = (255, 255, 0)
-    corners = corners.reshape((corners.shape[0], 1, corners.shape[1]))
-    ids = ids.reshape((ids.size, 1))
-    cv2.aruco.drawDetectedCornersCharuco(img, corners, ids, id_color)
+    if ids.size > 0:
+        id_color = (255, 255, 0)
+        corners = corners.reshape((corners.shape[0], 1, corners.shape[1]))
+        ids = ids.reshape((ids.size, 1))
+        cv2.aruco.drawDetectedCornersCharuco(img, corners, ids, id_color)
 
 
 if __name__ == "__main__":
@@ -153,10 +154,9 @@ if __name__ == "__main__":
         charuco_corners, charuco_ids = getCharucoCorners(frame, 4, 6, 8,
                                                          35, 25)
 
-        # If any corner is detected, draw corner
-        if (charuco_ids.size > 0):
-            drawDetectedCornersCharuco(frame, charuco_corners,
-                                       charuco_ids)
+        # Draw corners
+        drawDetectedCornersCharuco(frame, charuco_corners,
+                                   charuco_ids)
 
         # Draw image or quit
         cv2.imshow('video', frame)
