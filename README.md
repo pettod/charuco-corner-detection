@@ -54,7 +54,7 @@ Python scripts have a few certain constant values that define the parameters nee
 | SQUARE_LENGTH  | The side length of a square in ChArUco checkerboard in millimeters |
 | MARKER_LENGTH  | The side length of a marker in ChArUco checkerboard in millimeters |
 
-Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning that if some weird values are found for corner coordinates, you will have to swap the values between these parameters. The weird values can be noticed by visualizing the corner coordinates. MARKER_DICT values can be found from OpenCV's documentation under [cv::aruco::PREDEFINED_DICTIONARY_NAME](https://docs.opencv.org/3.1.0/d9/d6a/group__aruco.html#gac84398a9ed9dd01306592dd616c2c975), but all the possible enumerators and their integer values are also covered in the table below.
+Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning that if some weird values are found for corner coordinates, you will have to swap the values between these parameters. The weird values can be noticed by visualizing the corner coordinates. MARKER_DICT values can be found from OpenCV's documentation under [cv::aruco::PREDEFINED_DICTIONARY_NAME](https://docs.opencv.org/4.1.0/d9/d6a/group__aruco.html#gac84398a9ed9dd01306592dd616c2c975), but the common possible enumerators and their integer values are also covered in the table below.
 
 | Enumerator            | Value     |
 | --------------------- | --------- |
@@ -74,26 +74,62 @@ Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning 
 | DICT_7X7_100   	    | 13        |
 | DICT_7X7_250   	    | 14        |
 | DICT_7X7_1000         | 15        |
-| DICT_ARUCO_ORIGINAL   | 16        |
 
 The name of an enumerator defines the marker resolution and the maximum number of used corners in the dictionary. The maximum number of corners in the dictionary must always be greater or equal than the number of corners in the ChArUco checkerboard that is currently in use.
 
 ### Running the code
 
-Explanations for the scripts in the repository:
+Explanations for the scripts in the repository are described here.
+
+#### Note: You must set correct parameters depending on your ChArUco checkerboard before running the scripts. 
 
 #### Python
 
 1. ```draw_still_image_corners.py```
 
+Visualizes detected ChArUco corners. The resulting image should be similar with the still image above where squares are drawn to the corners with corner ID. Run the script as follows:
+
+```
+python draw_still_image_corners.py path/to/image.jpg
+```
+
+where the argument is path to the still image.
+
 2. ```image_set_detection_rate.py```
+
+Computing the detection rate for a set of images is informative, and helps to see fast how good images were taken during the capturing process. The command line interface is similar to the still image case. The path to the image set or multiple paths of the image sets can be given as arguments for the code. The call is as follows:
+
+```
+python image_set_detection_rate.py path/*.jpg another/path/*.jpg
+```
+
+It prints information of how many images had at least 1 detected corner and the percentage of detected corners compared to maximum number of corners (which is the number of images multiplied by the number of corners in the ChArUco checkerboard). 
 
 3. ```real_time_corner_detection.py```
 
-    - Note: 6X6 ChArUco board is provided in the ```test_images``` folder. The board can be printed and tested out.
+Runs real-time ChArUco marker and corner detection. It helps during the capturing session to see in real-time how well the markers are detected with different distances and angles related to a camera. Run the code as follows:
+
+```
+python real_time_corner_detection.py
+```
+
+Note: 6X6 ChArUco board is provided in the ```test_images/charuco_marker_6x6.png``` file. The board can be printed to a paper and tested out.
 
 4. ```write_corners_to_mat.py```
+
+Writes ChArUco checkerboard's corner coordinates and IDs to ```.mat``` file. Multiple file formats or paths can be given as arguments. Run the code as follows:
+
+```
+python write_corners_to_mat.py path/*.jpg another/path/*.jpg
+```
+
+Note: It was noticed that Matlab (version R2018b) does not support
+the NumPy library in Python 3.7. In Matlab, the image coordinates are then read from the ```.mat``` file.
 
 #### Matlab
 
 1. ```read_coordinates_from_mat.m```
+
+Reads the ChArUco corner coordinates and IDs from the written ```.mat``` file. Needs to know written file names, maximum number of corners in the ChArUco checkerboard and the number of written images.
+
+## Expected outputs
