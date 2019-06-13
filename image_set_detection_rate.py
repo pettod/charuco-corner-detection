@@ -15,8 +15,7 @@ from glob import glob
 import sys
 
 # Project files
-from get_charuco_corners import getCharucoCorners, \
-                                drawDetectedCornersCharuco_own
+from charuco import getCharucoCorners, drawDetectedCornersCharuco_own
 from utils import getImagesFromArguments
 
 

@@ -136,7 +136,7 @@ def drawDetectedCornersCharuco(img, corners, ids):
         cv2.aruco.drawDetectedCornersCharuco(img, corners, ids, id_color)
 
 
-if __name__ == "__main__":
+def main():
     """
     Code example to show how the code works. It uses webcam to record video
     and the used charuco checkerboard is having 4x6 corners and 6x6 resolution
@@ -166,3 +166,6 @@ if __name__ == "__main__":
     # Release capturing and close window
     cap.release()
     cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()

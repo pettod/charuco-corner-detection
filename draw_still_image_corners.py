@@ -15,15 +15,14 @@ Pressing 'q' will close the image.
 import cv2
 import numpy as np
 import sys
-from get_charuco_corners import getCharucoCorners, \
-                                drawDetectedCornersCharuco_own
+from charuco import getCharucoCorners, drawDetectedCornersCharuco_own
 
 # Project files
 from utils import getImagesFromArguments
 
 
-if __name__ == "__main__":
-
+def main():
+    # Initialization value for image
     file_name = "test_images/im1.jpg"
 
     # If argument was given
@@ -43,3 +42,6 @@ if __name__ == "__main__":
     cv2.imshow('Image', frame)
     if cv2.waitKey(0) & 0xff == 27:
         cv2.destroyAllWindows()
+
+
+main()

@@ -84,9 +84,9 @@ Explanations for the scripts in the repository:
 
 #### Python
 
-1. ```draw_corners_still_image.py```
+1. ```draw_still_image_corners.py```
 
-2. ```how_many_images_can_be_read.py```
+2. ```image_set_detection_rate.py```
 
 3. ```real_time_corner_detection.py```
 
