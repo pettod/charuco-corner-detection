@@ -136,6 +136,20 @@ def drawDetectedCornersCharuco(img, corners, ids):
         cv2.aruco.drawDetectedCornersCharuco(img, corners, ids, id_color)
 
 
+def matlabGetCharucoCorners(image, corners_x, corners_y, marker_dict,
+                            square_length, marker_length):
+    """
+    Wrapper for getCharucoCorners function
+
+    Returns
+    -------
+    Dict of shape {"corners": charuco_corners, "ids": charuco_ids}
+    """
+    (charuco_corners, charuco_ids) = getCharucoCorners(
+        image, int(corners_x), int(corners_y), int(marker_dict), int(square_length), int(marker_length))
+    return {"corners": charuco_corners, "ids": charuco_ids}
+
+
 def main():
     """
     Code example to show how the code works. It uses webcam to record video
