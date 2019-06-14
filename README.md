@@ -132,4 +132,8 @@ the NumPy library in Python 3.7. In Matlab, the image coordinates are then read 
 
 Reads the ChArUco corner coordinates and IDs from the written ```.mat``` file. Needs to know written file names, maximum number of corners in the ChArUco checkerboard and the number of written images.
 
+2. ```matlab_charuco_example.m```
+
+Example file on how to use the ChArUco corner detection API through Matlab. This is the file for Matlab users who want directly detect ChArUco checkerboard's corners with corner IDs by using only Matlab.
+
 ## 5 Expected outputs
