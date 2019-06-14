@@ -4,7 +4,8 @@ function [imCorners, imIds] = detect_charuco_corners(...
     image, cornersX, cornersY, markerResolution, squareLength,...
     markerLength)
 
-% Define maximum number of corners to the list
+% Define maximum number of corners to the list, this could be changed
+% if does not work, check the documentation
 markerDict = 0;
 if markerResolution == 4
     markerDict = 3;
@@ -17,9 +18,16 @@ elseif markerResolution == 7
 end
 
 % Detect corners with IDs
-cornersAndIds = struct(py.charuco.matlabGetCharucoCorners(...
-    py.numpy.array(image), cornersX, cornersY, markerDict, squareLength,...
-    markerLength));
+if ischar(image)
+    cornersAndIds = struct(py.charuco.matlabGetCharucoCorners(...
+        py.str(image), cornersX, cornersY, markerDict,...
+        squareLength, markerLength));
+else
+    cornersAndIds = struct(py.charuco.matlabGetCharucoCorners(...
+        py.numpy.array(image), cornersX, cornersY, markerDict,...
+        squareLength, markerLength));
+end
+
 imCorners = numpyArray2matrix(cornersAndIds.corners);
 imIds = numpyArray2vector(cornersAndIds.ids);
 

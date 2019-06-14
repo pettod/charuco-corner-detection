@@ -146,7 +146,8 @@ def matlabGetCharucoCorners(image, corners_x, corners_y, marker_dict,
     Dict of shape {"corners": charuco_corners, "ids": charuco_ids}
     """
     (charuco_corners, charuco_ids) = getCharucoCorners(
-        image, int(corners_x), int(corners_y), int(marker_dict), int(square_length), int(marker_length))
+        image, int(corners_x), int(corners_y), int(marker_dict),
+        int(square_length), int(marker_length))
     return {"corners": charuco_corners, "ids": charuco_ids}
 
 

@@ -11,3 +11,7 @@ markerLength = 47;
 % Detect corners with corner IDs
 [imCorners, imIds] = detect_charuco_corners(image, cornersX, cornersY, ...
     markerResolution, squareLength, markerLength);
+
+% Detect corners with corner IDs
+[imCorners2, imIds2] = detect_charuco_corners('test_images/im2.jpg',...
+    cornersX, cornersY, markerResolution, squareLength, markerLength);
