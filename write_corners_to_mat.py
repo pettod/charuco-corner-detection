@@ -29,7 +29,6 @@ MARKER_DICT = 5
 SQUARE_LENGTH = 60
 MARKER_LENGTH = 47
 NUMBER_OF_CAMERAS = 20
-# CIVIT charuco params: 11, 8, 5, 60, 47, 20
 
 
 def writeToFile(corners_coords, corners_ids):
