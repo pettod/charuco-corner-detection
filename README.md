@@ -44,7 +44,7 @@ In case of having version issues with the libraries, at least these versions hav
 
 ## 4 Usage
 
-### 4.1 Setting correct ChArUco parameters
+### 4.1 Setting Correct ChArUco Parameters
 
 Python scripts have a few certain constant values that define the parameters needed to detect the markers in the given ChArUco checkerboard. The table below describes the used parameters that must be defined. The main parameters are the first 3 ones which determine the number of corners and a marker resolution in the ChArUco checkerboard.
 
@@ -79,7 +79,7 @@ Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning 
 
 The name of an enumerator defines the marker resolution and the maximum number of used corners in the dictionary. The maximum number of corners in the dictionary must always be greater or equal than the number of corners in the ChArUco checkerboard that is currently in use.
 
-### 4.2 Running the code
+### 4.2 Running the Code
 
 Explanations for the scripts in the repository are described here.
 
