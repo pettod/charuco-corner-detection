@@ -1,5 +1,6 @@
 # Filetypes
 *.asv
+*.mat
 
 # Folders
 .venv/

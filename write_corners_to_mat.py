@@ -14,14 +14,13 @@ import numpy as np
 from glob import glob
 import scipy.io
 import sys
-from get_charuco_corners import getCharucoCorners, \
-                                drawDetectedCornersCharuco_own
+from charuco import getCharucoCorners, drawDetectedCornersCharuco_own
 
 # Project files
 from utils import getImagesFromArguments
 
 
-CORNERS_COORS_FNAME = "coords.mat"
+CORNERS_COORS_FNAME = "corners.mat"
 CORNERS_IDS_FNAME = "ids.mat"
 CORNERS_X = 11
 CORNERS_Y = 8
