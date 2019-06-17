@@ -1,7 +1,7 @@
 % Test script to show how to detect ChArUco corners and corner IDs
 
 % Read image and set ChArUco checkerboard parameters
-image = imread('test_images/im1.jpg');
+image = imread('test_data/im1.jpg');
 cornersX = 11;
 cornersY = 8;
 markerResolution = 5;
@@ -13,5 +13,5 @@ markerLength = 47;
     markerResolution, squareLength, markerLength);
 
 % Detect corners with corner IDs
-[imCorners2, imIds2] = detect_charuco_corners('test_images/im2.jpg',...
+[imCorners2, imIds2] = detect_charuco_corners('test_data/im2.jpg',...
     cornersX, cornersY, markerResolution, squareLength, markerLength);

@@ -39,7 +39,7 @@ def writeToFile(corners_coords, corners_ids):
 
 def main():
     detected_corners_images = 0
-    image_names = glob("test_images/*.jpg")
+    image_names = glob("test_data/*.jpg")
     coords = {}
     ids = {}
     images_without_detected_corners = []
