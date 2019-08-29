@@ -107,7 +107,7 @@ It prints information of how many images had at least 1 detected corner and the 
 
 3. ```real_time_corner_detection.py```
 
-Runs real-time ChArUco marker and corner detection. It helps during the capturing session to see in real-time how well the markers are detected with different distances and angles related to a camera. Run the code as follows:
+Runs real-time ChArUco marker and corner detection. It helps during the capturing session to see in real-time how well the markers are detected with different distances and angles in relation to a camera. Run the code as follows:
 
 ```
 python real_time_corner_detection.py
