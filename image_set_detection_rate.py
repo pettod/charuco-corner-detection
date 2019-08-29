@@ -29,7 +29,7 @@ MARKER_LENGTH = 47
 def main():
     detected_images = 0
     detected_corners = 0
-    image_names = glob("test_images/*.jpg")
+    image_names = glob("test_data/*.jpg")
 
     # If argument was given
     if len(sys.argv) > 1:

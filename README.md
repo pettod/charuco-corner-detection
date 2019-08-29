@@ -3,6 +3,8 @@
 ## 1 Introduction
 Python OpenCV corner detection to detect [ChArUco](https://docs.opencv.org/3.2.0/df/d4a/tutorial_charuco_detection.html) markers and corners. This project has also support for calling the corner detection through Matlab. This code detects markers (QR-codes) in the ChArUco board and interpolates the corners between 2 found markers. Corner IDs and coordinates are obtained in this project. Scripts also provide real-time and still image visualization, and detection rate for set of images.
 
+These scripts have been done in purpose of camera calibration so the goal was to find and identify corner coordinates. Expected outputs from the scipts are corner coordinates (x,y) in pixels and their corresponding IDs (from 0 to N-1).
+
 <img src="document_images/detected_charuco_markers.gif"
      alt="ChArUco detected markers and corners"
      width="75%"
@@ -42,17 +44,17 @@ In case of having version issues with the libraries, at least these versions hav
 
 ## 4 Usage
 
-### 4.1 Setting correct ChArUco parameters
+### 4.1 Setting Correct ChArUco Parameters
 
-Python scripts have a few certain constant values that define the parameters needed to detect the markers in the given ChArUco checkerboard. The table below describes the used parameters that must be defined. The main parameters are the first 3 ones which determine the number of corners and a marker resolution in the ChArUco checkerboard.
+Python scripts have a few certain constant values that define the parameters needed to detect the markers in the given ChArUco calibration board. The table below describes the used parameters that must be defined. The main parameters are the first 3 ones which determine the number of corners and a marker resolution in the ChArUco calibration board.
 
 | Parameter      | Description   |
 | -------------- | ------------- |
 | CORNERS_X      | The number of checkerboard corners in x direction |
 | CORNERS_Y      | The number of checkerboard corners in y direction |
 | MARKER_DICT    | Marker dictionary, depends on the marker resolution and the maximum number of needed marker IDs |
-| SQUARE_LENGTH  | The side length of a square in ChArUco checkerboard in millimeters |
-| MARKER_LENGTH  | The side length of a marker in ChArUco checkerboard in millimeters |
+| SQUARE_LENGTH  | The side length of a square in a checkerboard pattern in millimeters |
+| MARKER_LENGTH  | The side length of a marker in a checkerboard pattern in millimeters |
 
 Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning that if some weird values are found for corner coordinates, you will have to swap the values between these parameters. The weird values can be noticed by visualizing the corner coordinates. MARKER_DICT values can be found from OpenCV's documentation under [cv::aruco::PREDEFINED_DICTIONARY_NAME](https://docs.opencv.org/4.1.0/d9/d6a/group__aruco.html#gac84398a9ed9dd01306592dd616c2c975), but the common possible enumerators and their integer values are also covered in the table below.
 
@@ -75,13 +77,13 @@ Note: Parameters CORNERS_X and CORNERS_Y must be given in correct order meaning 
 | DICT_7X7_250   	    | 14        |
 | DICT_7X7_1000         | 15        |
 
-The name of an enumerator defines the marker resolution and the maximum number of used corners in the dictionary. The maximum number of corners in the dictionary must always be greater or equal than the number of corners in the ChArUco checkerboard that is currently in use.
+The name of an enumerator defines the marker resolution and the maximum number of used corners in the dictionary. The maximum number of corners in the dictionary must always be greater or equal than the number of corners in the ChArUco calibration board that is currently in use.
 
-### 4.2 Running the code
+### 4.2 Running the Code
 
 Explanations for the scripts in the repository are described here.
 
-#### Note: You must set correct parameters depending on your ChArUco checkerboard before running the scripts. 
+#### Note: You must set correct parameters depending on your ChArUco calibration board before running the scripts. 
 
 #### 4.2.1 Python
 
@@ -103,7 +105,7 @@ Computing the detection rate for a set of images is informative, and helps to se
 python image_set_detection_rate.py path/*.jpg another/path/*.jpg
 ```
 
-It prints information of how many images had at least 1 detected corner and the percentage of detected corners compared to maximum number of corners (which is the number of images multiplied by the number of corners in the ChArUco checkerboard). 
+It prints information of how many images had at least 1 detected corner and the percentage of detected corners compared to maximum number of corners (which is the number of images multiplied by the number of corners in the ChArUco calibration board). 
 
 3. ```real_time_corner_detection.py```
 
@@ -117,7 +119,7 @@ Note: 6X6 ChArUco board is provided in the ```test_images/charuco_marker_6x6.png
 
 4. ```write_corners_to_mat.py```
 
-Writes ChArUco checkerboard's corner coordinates and IDs to ```.mat``` file. Multiple file formats or paths can be given as arguments. Run the code as follows:
+Writes ChArUco calibration board's corner coordinates and IDs to ```.mat``` file. Multiple file formats or paths can be given as arguments. Run the code as follows:
 
 ```
 python write_corners_to_mat.py path/*.jpg another/path/*.jpg
@@ -128,8 +130,10 @@ the NumPy library in Python 3.7. In Matlab, the image coordinates are then read 
 
 #### 4.2.2 Matlab
 
-1. ```read_coordinates_from_mat.m```
+1. ```matlab_read_corners_example.m```
 
-Reads the ChArUco corner coordinates and IDs from the written ```.mat``` file. Needs to know written file names, maximum number of corners in the ChArUco checkerboard and the number of written images.
+Example file on how to read the ChArUco corner coordinates and IDs from the written ```.mat``` file. Needs to know the written corner coordinates and IDs file names, maximum number of corners in the ChArUco calibration board and the number of written images. Uses file ```read_corners_from_mat.m``` for reading.
 
-## 5 Expected outputs
+2. ```matlab_charuco_example.m```
+
+Example file on how to use the ChArUco corner detection API through Matlab. This is the file for Matlab users who want directly detect ChArUco calibration board's corners with corner IDs by using only Matlab. If ChArUco corner detection is needed in your project, you will have to copy files ```charuco.py``` and ```detect_charuco_corners.m``` to your project folder.

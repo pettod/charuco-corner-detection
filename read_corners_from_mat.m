@@ -1,8 +1,10 @@
-function [imCorners, imIds] = read_coordinates_from_mat(maxNumberOfCorners, numberOfImages)
+function [imCorners, imIds] = ...
+    read_corners_from_mat(maxBoardCorners, numberOfImages, ...
+    cornersFileName, idsFileName)
 
 % Read checkerboard corners and corner IDs
-charucoCornersXY = load('coords.mat');
-cornerIds = load('ids.mat');
+charucoCornersXY = load(cornersFileName);
+cornerIds = load(idsFileName);
 
 % Get image names
 cornerFields = fieldnames(charucoCornersXY);
@@ -13,14 +15,14 @@ if numberOfImages == -1
     numberOfImages = numel(cornerFields);
 end
 
-imCorners = zeros(maxNumberOfCorners, 2, numberOfImages);
-imIds = zeros(numberOfImages, maxNumberOfCorners);
+imCorners = zeros(maxBoardCorners, 2, numberOfImages);
+imIds = zeros(numberOfImages, maxBoardCorners);
 
 % Loop all images
 for i = 1:numberOfImages
     corners = charucoCornersXY.(cornerFields{i});
     ids = cornerIds.(idFields{i});
-    missingNumberOfCorners = maxNumberOfCorners - length(ids);
+    missingNumberOfCorners = maxBoardCorners - length(ids);
     
     % Add -1 to the end
     cornersFilled = [corners; -1*ones(missingNumberOfCorners, 2)];

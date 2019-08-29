@@ -14,14 +14,13 @@ import numpy as np
 from glob import glob
 import scipy.io
 import sys
-from get_charuco_corners import getCharucoCorners, \
-                                drawDetectedCornersCharuco_own
+from charuco import getCharucoCorners, drawDetectedCornersCharuco_own
 
 # Project files
 from utils import getImagesFromArguments
 
 
-CORNERS_COORS_FNAME = "coords.mat"
+CORNERS_COORS_FNAME = "corners.mat"
 CORNERS_IDS_FNAME = "ids.mat"
 CORNERS_X = 11
 CORNERS_Y = 8
@@ -29,7 +28,6 @@ MARKER_DICT = 5
 SQUARE_LENGTH = 60
 MARKER_LENGTH = 47
 NUMBER_OF_CAMERAS = 20
-# CIVIT charuco params: 11, 8, 5, 60, 47, 20
 
 
 def writeToFile(corners_coords, corners_ids):
@@ -41,7 +39,7 @@ def writeToFile(corners_coords, corners_ids):
 
 def main():
     detected_corners_images = 0
-    image_names = glob("test_images/*.jpg")
+    image_names = glob("test_data/*.jpg")
     coords = {}
     ids = {}
     images_without_detected_corners = []

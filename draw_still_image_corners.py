@@ -23,7 +23,7 @@ from utils import getImagesFromArguments
 
 def main():
     # Initialization value for image
-    file_name = "test_images/im1.jpg"
+    file_name = "test_data/im1.jpg"
 
     # If argument was given
     if len(sys.argv) > 1:
