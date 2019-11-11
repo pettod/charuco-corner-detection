@@ -1,8 +1,9 @@
-# Filetypes
+# File formats
 *.asv
+*.avi
 *.mat
 
 # Folders
-.venv/
 *__pycache__/
+.venv/
 .vscode/
