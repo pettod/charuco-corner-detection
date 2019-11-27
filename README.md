@@ -18,46 +18,37 @@ These scripts have been done in purpose of camera calibration so the goal was to
      width="75%"
      style="display: block; margin-left: auto; margin-right: auto;" />
 
-## 2 Dependencies
-
-These scripts have been tested in Manjaro 18.0.4 and in Windows 10. If Matlab support is needed, the Python 3.6 must be installed.
-
-## 3 Installation
+## 2 Installation
 
 1. Install Python 3.6. During the development, Python version 3.6.1 was used.
 
-2. Clone the repository
+2. Clone the repository and install Python dependencies
 
 ```bash
 git clone https://github.com/pettod/charuco-corner-detection.git
-```
-
-3. Install Python dependencies
-
-```bash
 cd charuco-corner-detection
 pip install -r requirements.txt
 ```
 
-## 4 Usage
+## 3 Usage
 
-### 4.1 Setting Correct ChArUco Parameters
+### 3.1 Setting Correct ChArUco Parameters
 
-Python scripts have a few certain constant values that define the parameters needed to detect the markers in the given ChArUco calibration board. Check details from:
+Python scripts have a few certain constant values that define the parameters needed to detect the markers in the given ChArUco calibration board. Check details to define the parameters for your ChArUco board:
 
 [Setting ChArUco parameters](documentation/setting_parameters.md)
 
-### 4.2 Running the Code
+### 3.2 Running the Code
 
 Descriptions for the scripts in the repository are described behind the following link:
 
 [Descriptions of scripts](documentation/description_of_scripts.md)
 
-Run the Python scripts in a following way:
+Run the Python scripts with example images:
 
 ```bash
-python draw_still_image_corners.py path/to/image.jpg
-python image_set_detection_rate.py path/*.jpg another/path/*.jpg
+python draw_still_image_corners.py
+python image_set_detection_rate.py
 python real_time_corner_detection.py
-python write_corners_to_mat.py path/*.jpg another/path/*.jpg
+python write_corners_to_mat.py
 ```
